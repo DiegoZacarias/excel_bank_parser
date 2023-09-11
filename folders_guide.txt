@@ -1,0 +1,6 @@
+Folders:
+
+  1. Original: This folder contains the .xlsx file that we downloaded from the bank website (itau.com.py).
+  2. Parsed: This folder contains the file after parsing the Excel file, which means the file has been converted to CSV with its extracted data.
+  3. Before_import: This folder contains the CSV file with all the transactions and their respective categories.
+  4. Spendee: This folder contains the file that will be used to import transactions into Spendee, including both incomes and expenses.
