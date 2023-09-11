@@ -1,0 +1,21 @@
+# Ignore virtual environment
+my_venv/
+
+# Ignore output/input files
+bank_files/
+
+# Ignore pycache
+__pycache__/
+
+# Ignore Python byte code
+*.pyc
+
+# Ignore Python distributions
+*.egg
+*.egg-info
+dist/
+build/
+
+# Ignore temp files
+*~
+\#*
