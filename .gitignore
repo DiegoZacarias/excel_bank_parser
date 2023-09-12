@@ -4,6 +4,8 @@ my_venv/
 # Ignore output/input files
 bank_files/
 
+aux/
+
 # Ignore pycache
 __pycache__/
 
