@@ -1,6 +1,8 @@
 import os
 import pytest
 from pytest import MonkeyPatch
+import shutil
+import tempfile
 
 from file_operations import create_folder
 
@@ -11,8 +13,16 @@ def mock_inputs():
     monkeypatch.setattr('builtins.input', lambda x: inputs.pop(0))
     return monkeypatch
 
-def test_create_folder(mock_inputs):
-    project_dir = os.getcwd()
+@pytest.fixture
+def temp_folder():
+    # Create a temporary folder for testing
+    temp_dir = tempfile.mkdtemp()
+    yield temp_dir  # Provide the temporary folder path to the test
+    # Teardown: Clean up the temporary folder after the test
+    shutil.rmtree(temp_dir)
+
+def test_create_folder(mock_inputs, temp_folder):
+    project_dir = temp_folder
     folder_path = create_folder(project_dir)
     expected_path = os.path.join(project_dir, 'bank_files', '09_2023')
 
