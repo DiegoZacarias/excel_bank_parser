@@ -1,5 +1,5 @@
 # Ignore virtual environment
-my_venv/
+venv/
 
 # Ignore output/input files
 bank_files/
