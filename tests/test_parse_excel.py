@@ -18,7 +18,7 @@ def test_parse_excel(temp_folder):
     excel_path = 'tests/data/original.xlsx'  
     parse_excel(excel_path, target_location )
 
-    output_path = target_location+'/parsed_file.csv'
+    output_path = target_location+'/parsed.csv'
 
     expected = pd.read_csv('tests/data/expected_output.csv')
     actual = pd.read_csv(output_path)
