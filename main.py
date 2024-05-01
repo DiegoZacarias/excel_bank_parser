@@ -1,6 +1,7 @@
 import os
 from file_operations import create_folder, import_file, get_file_path
 from parse_excel_file import parse_excel
+from clean_csv import actualizar_csv
 
 def prepare_process(project_dir, file_path, month, year):
     path = create_folder(project_dir, month, year)
@@ -20,9 +21,16 @@ def main():
     path = prepare_process(project_dir, file_path, month, year)
 
     # parse excel 
-    path_with_file = os.path.join(path, 'original/original.xlsx')
-    target_location = os.path.join(path, "parsed/")
-    parse_excel(path_with_file, target_location )
+    path_with_original_file = os.path.join(path, 'original/original.xlsx')
+    target_location_parsed = os.path.join(path, "parsed/")
+    parse_excel(path_with_original_file, target_location_parsed )
+    # path_with_parsed_file = os.path.join('parsed/parsed.csv')
+    path_with_parsed_file = os.path.join(path, 'parsed/parsed.csv')
+    # print('test')
+    # print(path_with_parsed_file)
+    # print(path_with_original_file)
+    target_location_before_import = os.path.join(path, "before_import/")
+    actualizar_csv(path_with_parsed_file, target_location_before_import)
 
     print('listo')
 

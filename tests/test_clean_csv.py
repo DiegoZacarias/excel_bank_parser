@@ -1,4 +1,4 @@
-from parse_excel_file import parse_excel
+from clean_csv import actualizar_csv
 import pandas as pd
 import pandas.testing as pd_testing
 import shutil
@@ -13,19 +13,19 @@ def temp_folder():
     # Teardown: Clean up the temporary folder after the test
     shutil.rmtree(temp_dir)
 
-def test_parse_excel(temp_folder):
+def test_clean_csv(temp_folder):
 
     target_location = temp_folder
-    excel_path = 'tests/data/original.xlsx'  
-    parse_excel(excel_path, target_location )
+    excel_path = 'tests/data/parsed.csv'  
+    actualizar_csv(excel_path, target_location)
 
-    output_path = target_location+'/parsed.csv'
+    output_path = target_location+'/before_import.csv'
 
-    expected = pd.read_csv('tests/data/parsed.csv')
+    expected = pd.read_csv('tests/data/before_import.csv')
     actual = pd.read_csv(output_path)
 
-    print(actual)
     print(expected)
+    print(actual)
 
     assert actual.equals(expected)
     pd_testing.assert_frame_equal(actual, expected)
