@@ -32,7 +32,8 @@ def main():
     target_location_before_import = os.path.join(path, "before_import/")
     actualizar_csv(path_with_parsed_file, target_location_before_import)
 
-    print('listo')
+    print('listo, ahora solo debes agregar las categorias al archivo csv en la carpeta before_import')
+    print('y luego ejecutar el archivo generate_final_csvs.py')
 
 if __name__ == "__main__":
     main()
