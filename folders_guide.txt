@@ -10,3 +10,6 @@ In order to make it work it should exists a file .xlsx in aux folder called: "or
 then run "python3 main.py" in venv
 
 this will generate the files in the folders mentioned above.
+
+to venv run:
+source venv/bin/activate

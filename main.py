@@ -1,11 +1,13 @@
 import os
-from file_operations import create_folder, import_file, get_file_path
+from file_operations import create_folder, import_file, rename_file, get_file_path
 from parse_excel_file import parse_excel
 from clean_csv import actualizar_csv
 
 def prepare_process(project_dir, file_path, month, year):
     path = create_folder(project_dir, month, year)
-    import_file(file_path, path)
+    print(file_path)
+    new_file_path = rename_file(file_path, "original.xlsx")
+    import_file(new_file_path, path)
     return path
 
 def get_month_and_year_input():
